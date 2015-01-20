@@ -30,12 +30,13 @@
             android:textSize="24sp"
             android:textColor="@color/logo_text" />
         <Button
+            android:id="@+id/qq_login_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/icon_index"
             android:layout_marginTop="60dp"
             android:layout_centerHorizontal="true"
-            android:text="用QQ登录"/>
+            android:text="@string/qq_login"/>
         </RelativeLayout>
     <LinearLayout
         android:layout_width="fill_parent"

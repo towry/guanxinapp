@@ -7,15 +7,18 @@ import android.text.style.ForegroundColorSpan;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Button;
 
 import me.guanxinapp.guanxin.BaseActivity;
 import me.guanxinapp.guanxin.R;
+import me.guanxinapp.guanxin.activity.main.MainActivity;
 
 /**
  * Created by Towry Wang on 2015/1/19.
  */
 public class WelcomeActivity extends BaseActivity implements View.OnClickListener {
     RelativeLayout mRelativeLayout;
+    Button mBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,16 +32,25 @@ public class WelcomeActivity extends BaseActivity implements View.OnClickListene
     @Override
     protected void initViews() {
         mRelativeLayout = (RelativeLayout) findViewById(R.id.welcome_layout);
+        mBtn = (Button) findViewById(R.id.qq_login_btn);
     }
 
     @Override
     protected void bindEvents() {
         mRelativeLayout.setOnClickListener(this);
+        mBtn.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         // showShortToast(R.string.hello_world);
+        switch (v.getId()) {
+
+            case R.id.qq_login_btn:
+                startActivity(MainActivity.class);
+                break;
+
+        }
     }
 
     private void setIndexColor() {

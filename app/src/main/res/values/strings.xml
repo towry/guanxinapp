@@ -7,5 +7,7 @@
     <string name="action_settings">设置</string>
     <string name="welcome_dear">你关心的人在这里</string>
     <string name="copyright">Copyright 2015 关心</string>
+    <string name="qq_login">用QQ登录</string>
+    <string name="title_activity_main">MainActivity</string>
 
 </resources>

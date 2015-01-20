@@ -2,4 +2,6 @@
 <resources>
     <color name="logo_text">#2fbbcc</color>
     <color name="logo_text_guanxin">#ff222c</color>
+    <color name="theme_black">#222222</color>
+    <color name="theme_white">#ffffff</color>
 </resources>
