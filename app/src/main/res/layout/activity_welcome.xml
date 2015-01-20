@@ -27,7 +27,7 @@
             android:gravity="center"
             android:layout_marginTop="20dp"
             android:text="@string/welcome_dear"
-            android:textSize="24dp"
+            android:textSize="24sp"
             android:textColor="@color/logo_text" />
         <Button
             android:layout_width="wrap_content"
