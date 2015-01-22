@@ -4,4 +4,6 @@
     <color name="logo_text_guanxin">#ff222c</color>
     <color name="theme_black">#222222</color>
     <color name="theme_white">#ffffff</color>
+    <color name="tab_bg">#fefefe</color>
+    <color name="bottom_bar_text">#82858b</color>
 </resources>

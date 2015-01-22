@@ -15,5 +15,10 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_example">Example action</string>
+    <string name="stream_title">消息</string>
+    <string name="contact_title">联系人</string>
+    <string name="news_title">动态</string>
+    <string name="setting_title">设置</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

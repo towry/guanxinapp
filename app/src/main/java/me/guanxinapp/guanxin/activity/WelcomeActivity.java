@@ -11,6 +11,7 @@ import android.widget.Button;
 
 import me.guanxinapp.guanxin.BaseActivity;
 import me.guanxinapp.guanxin.R;
+import me.guanxinapp.guanxin.activity.main.MainActivity;
 
 /**
  * Created by Towry Wang on 2015/1/19.
