@@ -2,6 +2,7 @@ package me.guanxinapp.guanxin.activity.main;
 
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
@@ -12,7 +13,7 @@ import me.guanxinapp.guanxin.BaseActivity;
 import me.guanxinapp.guanxin.fragment.StreamFragment;
 import me.guanxinapp.guanxin.fragment.SettingFragment;
 
-public class MainActivity extends BaseActivity implements View.OnClickListener {
+public class MainActivity extends BaseActivity implements View.OnClickListener, StreamFragment.OnFragmentInteractionListener, SettingFragment.OnFragmentInteractionListener {
 
     StreamFragment streamFragment;
     SettingFragment settingFragment;
@@ -27,6 +28,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         initViews();
         fragmentManager = getFragmentManager();
         setTabSelection(0);
+        bindEvents();
     }
 
 
@@ -78,6 +80,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 setTabSelection(3);
                 break;
             default:
+                showShortToast("default");
                 setTabSelection(0);
                 break;
         }
@@ -97,7 +100,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         switch (index) {
             case 0:
                 if (streamFragment == null) {
-                    streamFragment = new StreamFragment();
+                    streamFragment = StreamFragment.newInstance(null, null);
                     transaction.add(R.id.content, streamFragment);
                 } else {
                     transaction.show(streamFragment);
@@ -105,7 +108,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 break;
             case 3:
                 if (settingFragment == null) {
-                    settingFragment = new SettingFragment();
+                    settingFragment = SettingFragment.newInstance(null, null);
                     transaction.add(R.id.content, settingFragment);
                 } else {
                     transaction.show(settingFragment);
@@ -114,6 +117,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             default:
                 break;
         }
+        transaction.commit();
     }
 
     /**
@@ -130,5 +134,12 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         if (streamFragment != null) {
             transaction.hide(streamFragment);
         }
+        if (settingFragment != null) {
+            transaction.hide(settingFragment);
+        }
+    }
+
+    public void onFragmentInteraction(Uri uri) {
+
     }
 }
