@@ -7,26 +7,44 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import me.guanxinapp.guanxin.R;
 import me.guanxinapp.guanxin.BaseActivity;
+import me.guanxinapp.guanxin.fragment.FriendsFragment;
 import me.guanxinapp.guanxin.fragment.StreamFragment;
-import me.guanxinapp.guanxin.fragment.SettingFragment;
+import me.guanxinapp.guanxin.fragment.MeFragment;
 
-public class MainActivity extends BaseActivity implements View.OnClickListener, StreamFragment.OnFragmentInteractionListener, SettingFragment.OnFragmentInteractionListener {
+public class MainActivity extends BaseActivity implements View.OnClickListener,
+        StreamFragment.OnFragmentInteractionListener,
+        MeFragment.OnFragmentInteractionListener,
+        FriendsFragment.OnFragmentInteractionListener {
 
-    StreamFragment streamFragment;
-    SettingFragment settingFragment;
-    View streamView;
-    View settingView;
-    FragmentManager fragmentManager;
+    private StreamFragment streamFragment;
+    private MeFragment meFragment;
+    private FriendsFragment friendsFragment;
+    private View streamView;
+    private View meView;
+    private View friendsView;
+    private ImageView stream_icon;
+    private ImageView friends_icon;
+    private ImageView me_icon;
+    private TextView stream_text;
+    private TextView friends_text;
+    private TextView me_text;
+
+    private FragmentManager fragmentManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         initViews();
+
         fragmentManager = getFragmentManager();
+
         setTabSelection(0);
         bindEvents();
     }
@@ -58,16 +76,26 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
     protected void bindEvents() {
         // stream tab view
         streamView.setOnClickListener(this);
-        // setting tab view
-        settingView.setOnClickListener(this);
+        // me tab view
+        meView.setOnClickListener(this);
+        // friends tab view
+        friendsView.setOnClickListener(this);
     }
 
     @Override
     protected void initViews() {
         // stream tab view
         streamView = findViewById(R.id.stream_layout);
-        // setting tab view
-        settingView = findViewById(R.id.setting_layout);
+        stream_icon = (ImageView) findViewById(R.id.stream_icon);
+        stream_text = (TextView) findViewById(R.id.stream_text);
+        // me tab view
+        meView = findViewById(R.id.me_layout);
+        me_icon = (ImageView) findViewById(R.id.me_icon);
+        me_text = (TextView) findViewById(R.id.me_text);
+        // friends tab view
+        friendsView = findViewById(R.id.friends_layout);
+        friends_icon = (ImageView) findViewById(R.id.friends_icon);
+        friends_text = (TextView) findViewById(R.id.friends_text);
     }
 
     @Override
@@ -76,11 +104,13 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
             case R.id.stream_layout:
                 setTabSelection(0);
                 break;
-            case R.id.setting_layout:
-                setTabSelection(3);
+            case R.id.friends_layout:
+                setTabSelection(1);
+                break;
+            case R.id.me_layout:
+                setTabSelection(2);
                 break;
             default:
-                showShortToast("default");
                 setTabSelection(0);
                 break;
         }
@@ -99,6 +129,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
 
         switch (index) {
             case 0:
+                stream_icon.setImageResource(R.drawable.icon_user_pressed);
+                stream_text.setTextColor(getResources().getColor(R.color.bottom_bar_text_selected));
                 if (streamFragment == null) {
                     streamFragment = StreamFragment.newInstance(null, null);
                     transaction.add(R.id.content, streamFragment);
@@ -106,17 +138,30 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
                     transaction.show(streamFragment);
                 }
                 break;
-            case 3:
-                if (settingFragment == null) {
-                    settingFragment = SettingFragment.newInstance(null, null);
-                    transaction.add(R.id.content, settingFragment);
+            case 1:
+                friends_icon.setImageResource(R.drawable.icon_user_pressed);
+                friends_text.setTextColor(getResources().getColor(R.color.bottom_bar_text_selected));
+                if (friendsFragment == null) {
+                    friendsFragment = FriendsFragment.newInstance(null, null);
+                    transaction.add(R.id.content, friendsFragment);
                 } else {
-                    transaction.show(settingFragment);
+                    transaction.show(friendsFragment);
+                }
+                break;
+            case 2:
+                me_icon.setImageResource(R.drawable.icon_user_pressed);
+                me_text.setTextColor(getResources().getColor(R.color.bottom_bar_text_selected));
+                if (meFragment == null) {
+                    meFragment = MeFragment.newInstance(null, null);
+                    transaction.add(R.id.content, meFragment);
+                } else {
+                    transaction.show(meFragment);
                 }
                 break;
             default:
                 break;
         }
+
         transaction.commit();
     }
 
@@ -124,7 +169,14 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
      * Clear all state
      */
     private void clearSelection() {
+        stream_icon.setImageResource(R.drawable.icon_user_normal);
+        stream_text.setTextColor(getResources().getColor(R.color.bottom_bar_text));
 
+        friends_icon.setImageResource(R.drawable.icon_user_normal);
+        friends_text.setTextColor(getResources().getColor(R.color.bottom_bar_text));
+
+        me_icon.setImageResource(R.drawable.icon_user_normal);
+        me_text.setTextColor(getResources().getColor(R.color.bottom_bar_text));
     }
 
     /**
@@ -134,8 +186,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         if (streamFragment != null) {
             transaction.hide(streamFragment);
         }
-        if (settingFragment != null) {
-            transaction.hide(settingFragment);
+        if (meFragment != null) {
+            transaction.hide(meFragment);
+        }
+        if (friendsFragment != null) {
+            transaction.hide(friendsFragment);
         }
     }
 

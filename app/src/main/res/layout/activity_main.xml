@@ -8,13 +8,14 @@
         android:id="@+id/content"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:background="@color/theme_white">
         </FrameLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:background="@color/tab_bg">
+        android:background="@drawable/bottom_bar">
 
         <RelativeLayout
             android:id="@+id/stream_layout"
@@ -27,18 +28,26 @@
                 android:layout_centerVertical="true"
                 android:orientation="vertical">
 
-                <TextView
+                <ImageView
+                    android:id="@+id/stream_icon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="@string/stream_title"
+                    android:src="@drawable/icon_user_normal"/>
+
+                <TextView
+                    android:id="@+id/stream_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/stream_fragment_title"
                     android:textColor="@color/bottom_bar_text"/>
                 </LinearLayout>
             </RelativeLayout>
 
         <!-- 2 -->
         <RelativeLayout
-            android:id="@+id/contact_layout"
+            android:id="@+id/friends_layout"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1">
@@ -47,18 +56,27 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:orientation="vertical">
-                <TextView
+
+                <ImageView
+                    android:id="@+id/friends_icon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="@string/contact_title"
+                    android:src="@drawable/icon_user_normal"/>
+
+                <TextView
+                    android:id="@+id/friends_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/friends_fragment_title"
                     android:textColor="@color/bottom_bar_text"/>
                 </LinearLayout>
             </RelativeLayout>
 
         <!-- 3 -->
         <RelativeLayout
-            android:id="@+id/news_layout"
+            android:id="@+id/me_layout"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1">
@@ -67,31 +85,20 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:orientation="vertical">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:text="@string/news_title"
-                    android:textColor="@color/bottom_bar_text"/>
-            </LinearLayout>
-        </RelativeLayout>
 
-        <!-- 4 -->
-        <RelativeLayout
-            android:id="@+id/setting_layout"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:orientation="vertical">
-                <TextView
+                <ImageView
+                    android:id="@+id/me_icon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="@string/setting_title"
+                    android:src="@drawable/icon_user_normal"/>
+
+                <TextView
+                    android:id="@+id/me_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/me_fragment_title"
                     android:textColor="@color/bottom_bar_text"/>
             </LinearLayout>
         </RelativeLayout>

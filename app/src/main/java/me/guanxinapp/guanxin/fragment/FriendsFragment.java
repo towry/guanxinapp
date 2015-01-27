@@ -7,20 +7,18 @@ import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 
 import me.guanxinapp.guanxin.R;
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link StreamFragment.OnFragmentInteractionListener} interface
+ * {@link FriendsFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link StreamFragment#newInstance} factory method to
+ * Use the {@link FriendsFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class StreamFragment extends Fragment {
+public class FriendsFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -38,11 +36,11 @@ public class StreamFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment StreamFragment.
+     * @return A new instance of fragment FriendsFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static StreamFragment newInstance(String param1, String param2) {
-        StreamFragment fragment = new StreamFragment();
+    public static FriendsFragment newInstance(String param1, String param2) {
+        FriendsFragment fragment = new FriendsFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -50,7 +48,7 @@ public class StreamFragment extends Fragment {
         return fragment;
     }
 
-    public StreamFragment() {
+    public FriendsFragment() {
         // Required empty public constructor
     }
 
@@ -67,10 +65,7 @@ public class StreamFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View retV = inflater.inflate(R.layout.fragment_stream, container, false);
-        init(retV);
-
-        return retV;
+        return inflater.inflate(R.layout.fragment_friends, container, false);
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -95,13 +90,6 @@ public class StreamFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
-    }
-
-    protected void init(View v) {
-        ListView listView1 = (ListView) v.findViewById(R.id.stream_content);
-        String[] strs = {"1", "2", "3", "4", "5"};
-        ArrayAdapter<String> adapter = new ArrayAdapter(getActivity(), android.R.layout.simple_expandable_list_item_1, strs);
-        listView1.setAdapter(adapter);
     }
 
     /**
