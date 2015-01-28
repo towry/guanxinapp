@@ -9,7 +9,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Button;
 
-import me.guanxinapp.guanxin.BaseActivity;
+import me.guanxinapp.guanxin.foundation.BaseActivity;
 import me.guanxinapp.guanxin.R;
 import me.guanxinapp.guanxin.activity.main.MainActivity;
 

@@ -4,11 +4,13 @@ import android.app.Activity;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.support.v4.widget.SwipeRefreshLayout;
 
 import me.guanxinapp.guanxin.R;
 
@@ -20,7 +22,7 @@ import me.guanxinapp.guanxin.R;
  * Use the {@link StreamFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class StreamFragment extends Fragment {
+public class StreamFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -31,6 +33,10 @@ public class StreamFragment extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+
+    // The SwipeRefreshLayout
+    private SwipeRefreshLayout swipeRefreshLayout;
+    private ListView listView;
 
     /**
      * Use this factory method to create a new instance of
@@ -100,8 +106,14 @@ public class StreamFragment extends Fragment {
     protected void init(View v) {
         ListView listView1 = (ListView) v.findViewById(R.id.stream_content);
         String[] strs = {"1", "2", "3", "4", "5"};
-        ArrayAdapter<String> adapter = new ArrayAdapter(getActivity(), android.R.layout.simple_expandable_list_item_1, strs);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_expandable_list_item_1, strs);
         listView1.setAdapter(adapter);
+
+        swipeRefreshLayout = (SwipeRefreshLayout) v.findViewById(R.id.stream_fragment_container);
+        swipeRefreshLayout.setOnRefreshListener(this);
+        swipeRefreshLayout.setColorSchemeResources(android.R.color.holo_blue_bright,
+                android.R.color.holo_green_light, android.R.color.holo_orange_light,
+                android.R.color.holo_red_light);
     }
 
     /**
@@ -117,6 +129,16 @@ public class StreamFragment extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         public void onFragmentInteraction(Uri uri);
+    }
+
+    // SwipRefresh event handle
+    public void onRefresh() {
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run()  {
+                swipeRefreshLayout.setRefreshing(false);
+            }
+        }, 5000);
     }
 
 }

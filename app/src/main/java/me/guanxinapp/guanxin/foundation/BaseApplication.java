@@ -1,9 +1,11 @@
-package me.guanxinapp.guanxin;
+package me.guanxinapp.guanxin.foundation;
 
 import android.app.Application;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Log;
+
+import me.guanxinapp.guanxin.component.AppActivityLifecycleCallbacks;
 
 /**
  * Created by Towry Wang on 2015/1/19.
@@ -15,6 +17,7 @@ public class BaseApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        registerActivityLifecycleCallbacks(new AppActivityLifecycleCallbacks());
     }
 
     @Override

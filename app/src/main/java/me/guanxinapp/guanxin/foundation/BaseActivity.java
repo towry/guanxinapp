@@ -1,4 +1,4 @@
-package me.guanxinapp.guanxin;
+package me.guanxinapp.guanxin.foundation;
 
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;

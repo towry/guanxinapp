@@ -11,7 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import me.guanxinapp.guanxin.R;
-import me.guanxinapp.guanxin.BaseActivity;
+import me.guanxinapp.guanxin.foundation.BaseActivity;
 import me.guanxinapp.guanxin.fragment.FriendsFragment;
 import me.guanxinapp.guanxin.fragment.StreamFragment;
 import me.guanxinapp.guanxin.fragment.MeFragment;

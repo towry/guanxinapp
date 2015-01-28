@@ -127,7 +127,7 @@ public class People extends Entity implements Parcelable {
 
     /**
      * ?
-     * @return
+     * @return Parcelable.Creator\<People\>
      */
     public static Parcelable.Creator<People> getCreator() {
         return CREATOR;

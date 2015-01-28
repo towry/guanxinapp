@@ -3,7 +3,7 @@
     package="me.guanxinapp.guanxin" >
 
     <application
-        android:name=".BaseApplication"
+        android:name=".foundation.BaseApplication"
         android:allowBackup="true"
         android:hardwareAccelerated="false"
         android:icon="@drawable/heart_logo"
