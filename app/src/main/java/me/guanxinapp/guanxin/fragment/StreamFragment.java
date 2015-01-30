@@ -13,6 +13,7 @@ import android.widget.ListView;
 import android.support.v4.widget.SwipeRefreshLayout;
 
 import me.guanxinapp.guanxin.R;
+import me.guanxinapp.guanxin.adapter.StreamAdapter;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -106,7 +107,7 @@ public class StreamFragment extends Fragment implements SwipeRefreshLayout.OnRef
     protected void init(View v) {
         ListView listView1 = (ListView) v.findViewById(R.id.stream_content);
         String[] strs = {"1", "2", "3", "4", "5"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_expandable_list_item_1, strs);
+        StreamAdapter adapter = new StreamAdapter(getActivity(), strs);
         listView1.setAdapter(adapter);
 
         swipeRefreshLayout = (SwipeRefreshLayout) v.findViewById(R.id.stream_fragment_container);

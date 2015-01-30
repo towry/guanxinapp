@@ -11,12 +11,19 @@ import me.guanxinapp.guanxin.component.AppActivityLifecycleCallbacks;
  * Created by Towry Wang on 2015/1/19.
  */
 public class BaseApplication extends Application {
+
+    /**
+     * Singleton
+     */
+    private static BaseApplication mApplication = null;
+
     private Bitmap mDefaultAvatar;
     private static final String AVATAR_DIR = "avatar/";
 
     @Override
     public void onCreate() {
         super.onCreate();
+        mApplication = this;
         registerActivityLifecycleCallbacks(new AppActivityLifecycleCallbacks());
     }
 
@@ -30,5 +37,13 @@ public class BaseApplication extends Application {
     public void onTerminate() {
         super.onTerminate();
         Log.e("BaseApplication", "onTerminate");
+    }
+
+    /**
+     * Singleton
+     * @return BaseApplication
+     */
+    public static BaseApplication getInstance() {
+        return mApplication;
     }
 }

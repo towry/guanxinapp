@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <color name="transparent">#00000000</color>
     <color name="logo_text">#2fbbcc</color>
     <color name="logo_text_guanxin">#ff222c</color>
     <color name="theme_black">#222222</color>
