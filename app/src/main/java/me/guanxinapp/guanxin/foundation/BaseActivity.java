@@ -1,6 +1,6 @@
 package me.guanxinapp.guanxin.foundation;
 
-import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.widget.Toast;
@@ -9,7 +9,7 @@ import android.content.Intent;
 /**
  * Created by Towry Wang on 2015/1/19.
  */
-public abstract class BaseActivity extends FragmentActivity {
+public abstract class BaseActivity extends ActionBarActivity {
     protected BaseApplication mApplication;
 
     /**

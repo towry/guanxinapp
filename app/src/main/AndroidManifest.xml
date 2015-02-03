@@ -22,7 +22,7 @@
         </activity>
         <activity
             android:name=".activity.main.MainActivity"
-            android:label="@string/title_activity_main" >
+            android:label="@string/title_activity_welcome" >
         </activity>
     </application>
 

@@ -5,7 +5,7 @@
             <solid android:color="@color/main_tab_border" />
         </shape>
     </item>
-    <item android:top="1dp">
+    <item android:top="1px">
         <shape android:shape="rectangle">
             <solid android:color="@color/main_tab_bg" />
         </shape>

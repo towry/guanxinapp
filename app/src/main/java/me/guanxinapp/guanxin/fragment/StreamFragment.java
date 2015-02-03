@@ -12,8 +12,13 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.support.v4.widget.SwipeRefreshLayout;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import me.guanxinapp.guanxin.R;
 import me.guanxinapp.guanxin.adapter.StreamAdapter;
+import me.guanxinapp.guanxin.entity.Status;
+import me.guanxinapp.guanxin.foundation.BaseApplication;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -38,6 +43,9 @@ public class StreamFragment extends Fragment implements SwipeRefreshLayout.OnRef
     // The SwipeRefreshLayout
     private SwipeRefreshLayout swipeRefreshLayout;
     private ListView listView;
+
+    // status list
+    private List<Status> mStatusList = new ArrayList<>();
 
     /**
      * Use this factory method to create a new instance of
@@ -106,15 +114,22 @@ public class StreamFragment extends Fragment implements SwipeRefreshLayout.OnRef
 
     protected void init(View v) {
         ListView listView1 = (ListView) v.findViewById(R.id.stream_content);
-        String[] strs = {"1", "2", "3", "4", "5"};
-        StreamAdapter adapter = new StreamAdapter(getActivity(), strs);
+
+        mStatusList.add(new Status("avatar/avatar1.gif", System.currentTimeMillis(), "睡觉了", "Towry Wang"));
+        mStatusList.add(new Status("avatar/avatar2.jpg", System.currentTimeMillis(), "手机已解屏", "WuSheng Chen"));
+        mStatusList.add(new Status("avatar/avatar3.gif", System.currentTimeMillis(), "吃饭去", "Maggie Simpson"));
+        mStatusList.add(new Status("avatar/avatar5.gif", System.currentTimeMillis(), "玩篮球", "Ming Xiao"));
+        mStatusList.add(new Status("avatar/avatar4.gif", System.currentTimeMillis(), "看电影:《仁者无敌》", "Jack Chen"));
+        mStatusList.add(new Status("avatar/avatar6.gif", System.currentTimeMillis(), "玩篮球", "Four Lod"));
+
+        StreamAdapter adapter = new StreamAdapter(BaseApplication.getInstance(), getActivity(), mStatusList);
         listView1.setAdapter(adapter);
 
-        swipeRefreshLayout = (SwipeRefreshLayout) v.findViewById(R.id.stream_fragment_container);
-        swipeRefreshLayout.setOnRefreshListener(this);
-        swipeRefreshLayout.setColorSchemeResources(android.R.color.holo_blue_bright,
-                android.R.color.holo_green_light, android.R.color.holo_orange_light,
-                android.R.color.holo_red_light);
+//        swipeRefreshLayout = (SwipeRefreshLayout) v.findViewById(R.id.stream_fragment_container);
+//        swipeRefreshLayout.setOnRefreshListener(this);
+//        swipeRefreshLayout.setColorSchemeResources(android.R.color.holo_blue_bright,
+//                android.R.color.holo_green_light, android.R.color.holo_orange_light,
+//                android.R.color.holo_red_light);
     }
 
     /**

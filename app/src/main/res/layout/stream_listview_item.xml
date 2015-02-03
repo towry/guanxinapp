@@ -1,38 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:id="@+id/stream_listview_item_root"
     android:background="@drawable/listview_item_bg_selector_light">
 
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:gravity="left">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/stream_user_name"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/stream_text"/>
-
-        <me.guanxinapp.guanxin.view.TimeTextView
-            android:id="@+id/stream_time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@id/stream_user_name" />
-        </RelativeLayout>
-
     <ImageView
         android:id="@+id/stream_avatar"
-        android:layout_gravity="right|center_vertical"
-        android:layout_marginTop="3dp"
-        android:layout_marginBottom="5dp"
-        android:layout_marginRight="3dp"
+        android:contentDescription="@android:id/empty"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_gravity="center_vertical"
+        android:layout_marginRight="10dp"
         android:layout_width="50dp"
         android:layout_height="50dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="normal"
+        android:textSize="16sp"
+        android:textColor="#222222"
+        android:layout_toRightOf="@+id/stream_avatar"
+        android:layout_toEndOf="@+id/stream_avatar"
+        android:id="@+id/stream_user_name" />
+
+    <me.guanxinapp.guanxin.view.TimeTextView
+        android:id="@+id/stream_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:textSize="12dp"
+        android:textColor="#9e9d9f"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_toRightOf="@+id/stream_avatar"
+        android:layout_toEndOf="@+id/stream_avatar"
+        android:layout_below="@+id/stream_user_name"
+        android:ellipsize="marquee"
+        android:layout_marginTop="5dp"
+        android:textSize="14dp"
+        android:textColor="#6e6d6c"
+        android:id="@+id/stream_text" />
+
+
 </RelativeLayout>

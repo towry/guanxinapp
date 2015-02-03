@@ -5,9 +5,9 @@
     <color name="logo_text">#2fbbcc</color>
     <color name="logo_text_guanxin">#ff222c</color>
     <color name="theme_black">#222222</color>
-    <color name="theme_white">#eeeeee</color>
-    <color name="main_tab_bg">#eeeeee</color>
-    <color name="main_tab_border">#e2e2e2</color>
+    <color name="theme_white">#fafafa</color>
+    <color name="main_tab_bg">#fafafa</color>
+    <color name="main_tab_border">#dddddd</color>
     <color name="bottom_bar_text">#82858b</color>
     <color name="bottom_bar_text_selected">#71C036</color>
 </resources>

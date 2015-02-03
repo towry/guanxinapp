@@ -13,7 +13,8 @@
         <ListView
             android:id="@+id/stream_content"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-        </ListView>
+            android:layout_height="match_parent"
+            android:divider="#dddddd"
+            android:dividerHeight="1px" />
     </LinearLayout>
 </android.support.v4.widget.SwipeRefreshLayout>
