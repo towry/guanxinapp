@@ -48,5 +48,4 @@
         android:textColor="#6e6d6c"
         android:id="@+id/stream_text" />
 
-
 </RelativeLayout>

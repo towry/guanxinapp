@@ -4,8 +4,12 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -17,7 +21,7 @@ import me.guanxinapp.guanxin.view.TimeTextView;
 /**
  * Created by Towry Wang on 2015/2/3.
  */
-public class StatusItem extends StreamItem {
+public class StatusItem extends StreamItem implements View.OnLongClickListener {
 
     private TextView mContentView;
     private ImageView mAvatarView;
@@ -42,6 +46,13 @@ public class StatusItem extends StreamItem {
         if (mRootView == null) {
             mRootView = mInflater.inflate(R.layout.stream_listview_item, null);
         }
+
+        mRootView.setOnLongClickListener(this);
+    }
+
+    @Override
+    public boolean onLongClick(View view) {
+        return true;
     }
 
     @Override

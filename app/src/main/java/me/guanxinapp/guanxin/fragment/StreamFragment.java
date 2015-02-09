@@ -8,6 +8,7 @@ import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -113,14 +114,20 @@ public class StreamFragment extends Fragment implements SwipeRefreshLayout.OnRef
     }
 
     protected void init(View v) {
-        ListView listView1 = (ListView) v.findViewById(R.id.stream_content);
+        final ListView listView1 = (ListView) v.findViewById(R.id.stream_content);
 
-        mStatusList.add(new Status("avatar/avatar1.gif", System.currentTimeMillis(), "睡觉了", "Towry Wang"));
-        mStatusList.add(new Status("avatar/avatar2.jpg", System.currentTimeMillis(), "手机已解屏", "WuSheng Chen"));
-        mStatusList.add(new Status("avatar/avatar3.gif", System.currentTimeMillis(), "吃饭去", "Maggie Simpson"));
-        mStatusList.add(new Status("avatar/avatar5.gif", System.currentTimeMillis(), "玩篮球", "Ming Xiao"));
-        mStatusList.add(new Status("avatar/avatar4.gif", System.currentTimeMillis(), "看电影:《仁者无敌》", "Jack Chen"));
-        mStatusList.add(new Status("avatar/avatar6.gif", System.currentTimeMillis(), "玩篮球", "Four Lod"));
+        mStatusList.add(new Status("avatar/avatar1.gif", System.currentTimeMillis(), "睡觉了", "王林涛"));
+        mStatusList.add(new Status("avatar/avatar2.jpg", System.currentTimeMillis(), "手机已解屏", "王国林"));
+        mStatusList.add(new Status("avatar/avatar3.gif", System.currentTimeMillis(), "吃饭去", "王涛"));
+        mStatusList.add(new Status("avatar/avatar5.gif", System.currentTimeMillis(), "玩篮球", "任伟明"));
+        mStatusList.add(new Status("avatar/avatar4.gif", System.currentTimeMillis(), "看电影:《仁者无敌》", "成龙"));
+        mStatusList.add(new Status("avatar/avatar6.gif", System.currentTimeMillis(), "玩篮球", "陈赓"));
+        mStatusList.add(new Status("avatar/avatar5.gif", System.currentTimeMillis(), "玩篮球", "夏雨"));
+        mStatusList.add(new Status("avatar/avatar4.gif", System.currentTimeMillis(), "看电影:《仁者无敌》", "付哲"));
+        mStatusList.add(new Status("avatar/avatar6.gif", System.currentTimeMillis(), "玩篮球", "鲁德"));
+        mStatusList.add(new Status("avatar/avatar5.gif", System.currentTimeMillis(), "玩篮球", "何炅"));
+        mStatusList.add(new Status("avatar/avatar4.gif", System.currentTimeMillis(), "看电影:《仁者无敌》", "张翠山"));
+        mStatusList.add(new Status("avatar/avatar6.gif", System.currentTimeMillis(), "玩篮球", "四德"));
 
         StreamAdapter adapter = new StreamAdapter(BaseApplication.getInstance(), getActivity(), mStatusList);
         listView1.setAdapter(adapter);
@@ -130,6 +137,27 @@ public class StreamFragment extends Fragment implements SwipeRefreshLayout.OnRef
 //        swipeRefreshLayout.setColorSchemeResources(android.R.color.holo_blue_bright,
 //                android.R.color.holo_green_light, android.R.color.holo_orange_light,
 //                android.R.color.holo_red_light);
+//
+//        listView1.setOnScrollListener(new AbsListView.OnScrollListener() {
+//            @Override
+//            public void onScrollStateChanged(AbsListView view, int scrollState) {
+//
+//            }
+//
+//            @Override
+//            public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+//                boolean enable = false;
+//
+//                if (listView1 != null && listView1.getChildCount() > 0) {
+//                    // is the first item of listview visible?
+//                    boolean firstItemVisible = listView1.getFirstVisiblePosition() == 0;
+//                    boolean topOfFirstItemVisible = listView1.getChildAt(0).getTop() == 0;
+//
+//                    enable = firstItemVisible && topOfFirstItemVisible;
+//                }
+//                swipeRefreshLayout.setEnabled(enable);
+//            }
+//        });
     }
 
     /**
@@ -156,5 +184,4 @@ public class StreamFragment extends Fragment implements SwipeRefreshLayout.OnRef
             }
         }, 5000);
     }
-
 }

@@ -49,28 +49,28 @@ public abstract class BaseActivity extends ActionBarActivity {
     /**
      * Show short Toast from resource id
      */
-    protected void showShortToast(int resId) {
+    public void showShortToast(int resId) {
         Toast.makeText(this, getString(resId), Toast.LENGTH_SHORT).show();
     }
 
     /**
      * Show short Toast from string
      */
-    protected void showShortToast(String text) {
+    public void showShortToast(String text) {
         Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
     }
 
     /**
      * Show long Toast from resource id
      */
-    protected void showLongToast(int resId) {
+    public void showLongToast(int resId) {
         Toast.makeText(this, getString(resId), Toast.LENGTH_LONG).show();
     }
 
     /**
      * Show long Toast from string
      */
-    protected void showLongToast(String text) {
+    public void showLongToast(String text) {
         Toast.makeText(this, text, Toast.LENGTH_LONG).show();
     }
 

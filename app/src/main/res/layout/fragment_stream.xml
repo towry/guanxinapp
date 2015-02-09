@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:id="@+id/stream_fragment_container">
 
-    <LinearLayout
+    <FrameLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="false"
@@ -16,5 +16,5 @@
             android:layout_height="match_parent"
             android:divider="#dddddd"
             android:dividerHeight="1px" />
-    </LinearLayout>
+    </FrameLayout>
 </android.support.v4.widget.SwipeRefreshLayout>

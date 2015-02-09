@@ -10,4 +10,7 @@
     <color name="main_tab_border">#dddddd</color>
     <color name="bottom_bar_text">#82858b</color>
     <color name="bottom_bar_text_selected">#71C036</color>
+    <color name="red_transparent">#66FF0000</color>
+
+    <color name="top_bar_bg">#FAF9F7</color>
 </resources>

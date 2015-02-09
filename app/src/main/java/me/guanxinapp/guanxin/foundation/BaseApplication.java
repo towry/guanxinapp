@@ -43,7 +43,7 @@ public class BaseApplication extends Application {
      * Singleton
      * @return BaseApplication
      */
-    public static BaseApplication getInstance() {
+    public static synchronized BaseApplication getInstance() {
         return mApplication;
     }
 }
